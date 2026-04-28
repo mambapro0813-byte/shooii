@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cesium GIS 数据预览</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="panel">
+        <h1>GIS 数据预览</h1>
+        <p>支持格式：GeoJSON / Shapefile(.zip/.shp) / WKT / DWG(DXF 文本兼容)</p>
+
+        <label class="upload-box">
+          <span>选择文件</span>
+          <input id="fileInput" type="file" multiple accept=".geojson,.json,.zip,.shp,.wkt,.txt,.dwg,.dxf" />
+        </label>
+
+        <div class="tip">
+          <strong>DWG 说明：</strong>
+          <span>浏览器端无法稳定解析二进制 DWG，本工具会尝试按 DXF 文本读取。若失败，请先将 DWG 转为 DXF/GeoJSON。</span>
+        </div>
+
+        <button id="clearBtn" type="button">清空图层</button>
+        <ul id="layers"></ul>
+        <pre id="log"></pre>
+      </aside>
+      <main id="viewer"></main>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
